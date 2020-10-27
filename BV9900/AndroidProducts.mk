@@ -1,0 +1,3 @@
+LOCAL_PATH := device/Blackview/BV9900
+
+PRODUCT_MAKEFILES := $(LOCAL_PATH)/omni_BV9900.mk
