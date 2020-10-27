@@ -1,4 +1,4 @@
-LOCAL_PATH := device/blackview/BV9900
+LOCAL_PATH := device/Blackview/BV9900
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
