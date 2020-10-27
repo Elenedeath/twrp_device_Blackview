@@ -16,3 +16,4 @@ Rear Depth Sensor  | 2.0 MP
 Front Camera | 16.0 MP
 Release Date | Dec 2019
 
+![BV9900](https://user-images.githubusercontent.com/502132/97244166-2ed56f80-17f8-11eb-86dd-d53f7734e2bd.png)
