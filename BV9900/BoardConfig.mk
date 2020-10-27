@@ -76,28 +76,46 @@ LZMA_RAMDISK_TARGETS := recovery
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/root/etc/recovery.fstab
-TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/recovery/root/init.recovery.mt6779.rc
+TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/recovery/root/init.rc
 
 # system.prop
-#TARGET_SYSTEM_PROP := $(LOCAL_PATH)/recovery/root/system.prop
+TARGET_SYSTEM_PROP := $(LOCAL_PATH)/recovery/root/system.prop
 
-# TWRP Configuration
+########
+# TWRP #
+########
+# Resolution
 TW_THEME := portrait_hdpi
-TW_EXTRA_LANGUAGES := true
-TW_DEFAULT_LANGUAGE := en
+# DEVICE_RESOLUTION := 1080x2280 (deprecated)
+DEVICE_SCREEN_WIDTH := 1080
+DEVICE_SCREEN_HEIGHT := 2280
+
+# Display
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_DEFAULT_BRIGHTNESS := 80
+TW_MAX_BRIGHTNESS := 255
 TW_SCREEN_BLANK_ON_BOOT := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
-TW_INCLUDE_CRYPTO := true
 
-RECOVERY_SDCARD_ON_DATA := true
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
-TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
-TW_MAX_BRIGHTNESS := 255
-TW_DEFAULT_BRIGHTNESS := 80
 TW_INCLUDE_NTFS_3G := true
 TW_INCLUDE_FUSE_EXFAT := true
 
+# Crypto
+TW_INCLUDE_CRYPTO := true
+
 # Debug
 TWRP_INCLUDE_LOGCAT := true
-TARGET_USES_LOGD := true
+
+# Storage
+TW_HAS_MTP := true
+TW_MTP_DEVICE := /dev/mtp_usb
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_DEFAULT_EXTERNAL_STORAGE := true
+TW_NO_USB_STORAGE := false
+
+# Languages
+TW_EXTRA_LANGUAGES := true
+TW_DEFAULT_LANGUAGE := en
