@@ -50,6 +50,7 @@ script:
     sudo docker run --rm -i -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) -v "$(pwd):/home/twrp/:rw,z" -v "${HOME}/.ccache:/srv/ccache:rw,z" fr3akyphantom/droid-builder /bin/bash << EOF
     cd /home/twrp/
     source build/envsetup.sh
+    ALLOW_MISSING_DEPENDENCIES=TRUE
     lunch omni_BV9900-eng
     sudo make -j$(nproc --all) recoveryimage
     exit
