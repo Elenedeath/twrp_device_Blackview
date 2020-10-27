@@ -16,14 +16,13 @@ services:
 before_install: |
   # Uncomment & Use below line If Building for Lollipop-based Devices
   if ! [ -f $HOME/twrp/Makefile ]; then
-      TWRP_SOURCE="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-5.1-norepo-20200708.tar.xz"
-      wget -q ${TWRP_SOURCE} -O $HOME/twrp/twrp.tar.xz
+      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-5.1-norepo-20200708.tar.xz" -O $HOME/twrp/twrp.tar.xz
       tar -xJf twrp.tar.xz --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz
   fi
   - docker pull fr3akyphantom/droid-builder:latest
 before_script:
-  - cd $HOME && mkdir twrp
-  - cd $HOME/twrp && mkdir out
+  #- cd $HOME && mkdir twrp
+  #- cd $HOME/twrp && mkdir out
   # download the TWRP Compressed Source Files from PhantomZone54's Release
   # Uncomment & Use below line If Building for Lollipop-based Devices
   # - TWRP_SOURCE="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-5.1-norepo-20200708.tar.xz"
@@ -54,20 +53,20 @@ before_script:
   # - wget -q ${TWRP_SOURCE4} -O $HOME/twrp/twrp.tar.xz.ad
   # - cat $HOME/twrp/twrp.tar.xz.* | tar xJf - --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz.*
 script:
-  - cd $HOME/twrp/ && git clone https://github.com/Elenedeath/twrp_device_Blackview_BV9900.git device/Blackview/BV9900
-  - |
-    sudo docker run --rm -i -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) -v "$(pwd):/home/twrp/:rw,z" -v "${HOME}/.ccache:/srv/ccache:rw,z" fr3akyphantom/droid-builder /bin/bash << EOF
-    cd /home/twrp/
-    source build/envsetup.sh
-    ALLOW_MISSING_DEPENDENCIES=TRUE
-    lunch omni_BV9900-eng
-    sudo make -j$(nproc --all) recoveryimage
-    exit
-    EOF
+  #- cd $HOME/twrp/ && git clone https://github.com/Elenedeath/twrp_device_Blackview_BV9900.git device/Blackview/BV9900
+  #- |
+  #  sudo docker run --rm -i -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) -v "$(pwd):/home/twrp/:rw,z" -v "${HOME}/.ccache:/srv/ccache:rw,z" fr3akyphantom/droid-builder /bin/bash << EOF
+  #  cd /home/twrp/
+  #  source build/envsetup.sh
+  #  ALLOW_MISSING_DEPENDENCIES=TRUE
+  #  lunch omni_BV9900-eng
+  #  sudo make -j$(nproc --all) recoveryimage
+  #  exit
+  #  EOF
 after_success:
-  - export version=$(cat bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d '"' -f2)
-  - cp $HOME/twrp/out/target/product/BV9900/recovery.img $HOME/twrp/TWRP-$version-BV9900-$(date +"%Y%m%d")-Unofficial.img
-  - cd $HOME/twrp/
+  #- export version=$(cat bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d '"' -f2)
+  #- cp $HOME/twrp/out/target/product/BV9900/recovery.img $HOME/twrp/TWRP-$version-BV9900-$(date +"%Y%m%d")-Unofficial.img
+  #- cd $HOME/twrp/
   # Optional: You might need to switch from https://transfer.sh to https://file.io
   # - curl -s --upload-file TWRP-$version-BV9900-$(date +"%Y%m%d")-Unofficial.img https://transfer.sh/ && echo ""
 deploy:
