@@ -1,4 +1,4 @@
-ifneq ($(filter BV9900,$(TARGET_DEVICE)),)
+ifneq ($(filter BV9900_EEA,$(TARGET_DEVICE)),)
 
 LOCAL_PATH := device/Blackview/BV9900_EEA
 
