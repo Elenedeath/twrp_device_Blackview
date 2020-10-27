@@ -8,6 +8,9 @@ git:
 addons:
   apt:
     update: true
+cache:
+  directories:
+  - $HOME/twrp
 services:
   - docker
 before_install:
