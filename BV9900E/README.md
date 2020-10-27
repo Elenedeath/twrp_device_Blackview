@@ -16,3 +16,4 @@ Rear Depth Sensor  | 2.0 MP
 Front Camera | 16.0 MP
 Release Date | Sep 2020 Pre-Sale
 
+![BV9900E](https://user-images.githubusercontent.com/502132/97244167-2f6e0600-17f8-11eb-8a7b-32557061e72d.png)
