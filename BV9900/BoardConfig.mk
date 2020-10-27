@@ -79,7 +79,7 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/root/etc/recovery.fstab
 TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/recovery/root/init.rc
 
 # system.prop
-TARGET_SYSTEM_PROP := $(LOCAL_PATH)/recovery/root/system.prop
+#TARGET_SYSTEM_PROP := $(LOCAL_PATH)/recovery/root/system.prop
 
 ########
 # TWRP #
