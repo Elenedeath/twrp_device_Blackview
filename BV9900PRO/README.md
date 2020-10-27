@@ -16,3 +16,4 @@ Rear Depth Sensor  | 2.0 MP
 Front Camera | 16.0 MP
 Release Date | Mar 2020
 
+![BV9900PRO](https://user-images.githubusercontent.com/502132/97244168-30069c80-17f8-11eb-8b55-ef6df7171b2e.png)
