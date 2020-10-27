@@ -15,10 +15,10 @@ PRODUCT_COPY_FILES += device/Blackview/BV9900_EEA/prebuilt/zImage:kernel
 # Fles under $(LOCAL_PATH)/recovery/root/ gets automatically copied into recovery
 # PRODUCT_COPY_FILES += $(LOCAL_PATH)/recovery/root/*:root/*
 
-PRODUCT_DEVICE := BV9900
+PRODUCT_DEVICE := BV9900_EEA
 PRODUCT_NAME := omni_BV9900_EEA
 PRODUCT_BRAND := Blackview
-PRODUCT_MODEL := BV9900
+PRODUCT_MODEL := BV9900_EEA
 PRODUCT_MANUFACTURER := Blackview
 PRODUCT_RELEASE_NAME := Blackview BV9900
 
