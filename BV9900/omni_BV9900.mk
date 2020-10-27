@@ -16,7 +16,7 @@ PRODUCT_COPY_FILES += device/Blackview/BV9900/prebuilt/zImage:kernel
 # PRODUCT_COPY_FILES += $(LOCAL_PATH)/recovery/root/*:root/*
 
 PRODUCT_DEVICE := BV9900
-PRODUCT_NAME := BV9900
+PRODUCT_NAME := omni_BV9900
 PRODUCT_BRAND := Blackview
 PRODUCT_MODEL := BV9900
 PRODUCT_MANUFACTURER := Blackview
