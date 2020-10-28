@@ -8,9 +8,9 @@ git:
 addons:
   apt:
     update: true
-cache:
-  directories:
-  - $HOME/twrp
+#cache:
+#  directories:
+#  - $HOME/twrp
 services:
   - docker
 # download the TWRP Compressed Source Files from PhantomZone54's Release
