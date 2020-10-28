@@ -54,11 +54,7 @@ before_install: |
 #  fi
 #  docker pull fr3akyphantom/droid-builder:latest
 #
-install: |
-  ./scripts/build.sh;
-
 script: |
-  ./scripts/test-integration.sh;
 #- cd $HOME && mkdir twrp
 #- cd $HOME/twrp && mkdir out
 #- cd $HOME/twrp/ && git clone https://github.com/Elenedeath/twrp_device_Blackview_BV9900.git device/Blackview/BV9900
@@ -72,7 +68,6 @@ script: |
 #  exit
 #  EOF
 after_success: |
-  ./scripts/deploy.sh;
 #- export version=$(cat bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d '"' -f2)
 #- cp $HOME/twrp/out/target/product/BV9900/recovery.img $HOME/twrp/TWRP-$version-BV9900-$(date +"%Y%m%d")-Unofficial.img
 #- cd $HOME/twrp/
