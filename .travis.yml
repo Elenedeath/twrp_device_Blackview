@@ -22,46 +22,46 @@ services:
 #      tar -xJf $HOME/twrp/twrp.tar.xz --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz
 #  fi
 #  docker pull fr3akyphantom/droid-builder:latest
+#
 # Uncomment & Use below line If Building for Marshmallow-based Devices
+#before_install: |
+#  if ! [ -f $HOME/twrp/Makefile ]; then
+#      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-6.0-norepo-20200708.tar.xz -O $HOME/twrp/twrp.tar.xz
+#      tar -xJf $HOME/twrp/twrp.tar.xz --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz
+#  fi
+#  docker pull fr3akyphantom/droid-builder:latest
+#
+# Uncomment & Use below line If Building for Nougat-based Devices
+#before_install: |
+#  if ! [ -f $HOME/twrp/Makefile ]; then
+#      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-7.1-norepo-20200708.tar.xz -O $HOME/twrp/twrp.tar.xz
+#      tar -xJf $HOME/twrp/twrp.tar.xz --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz
+#  fi
+#  docker pull fr3akyphantom/droid-builder:latest
+#
+# Uncomment & Use below line If Building for Oreo-based Devices
+#before_install: |
+#  if ! [ -f $HOME/twrp/Makefile ]; then
+#      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-8.1-norepo-20200708.tar.xz.aa -O $HOME/twrp/twrp.tar.xz.aa
+#      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-8.1-norepo-20200708.tar.xz.ab -O $HOME/twrp/twrp.tar.xz.ab
+#      cat $HOME/twrp/twrp.tar.xz.* | tar xJf - --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz.*
+#  fi
+#  docker pull fr3akyphantom/droid-builder:latest
+#
+# Use below line If Building for Pie-based Devices
 before_install: |
   if ! [ -f $HOME/twrp/Makefile ]; then
-      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-6.0-norepo-20200708.tar.xz -O $HOME/twrp/twrp.tar.xz
-      tar -xJf $HOME/twrp/twrp.tar.xz --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz
+      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.aa -O $HOME/twrp/twrp.tar.xz.aa
+      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.ab -O $HOME/twrp/twrp.tar.xz.ab
+      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.ac -O $HOME/twrp/twrp.tar.xz.ac
+      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.ad -O $HOME/twrp/twrp.tar.xz.ad
+      cat $HOME/twrp/twrp.tar.xz.* | tar xJf - --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz.*
   fi
   docker pull fr3akyphantom/droid-builder:latest
 #
 before_script:
   #- cd $HOME && mkdir twrp
   #- cd $HOME/twrp && mkdir out
-  # download the TWRP Compressed Source Files from PhantomZone54's Release
-  # Uncomment & Use below line If Building for Lollipop-based Devices
-  # - TWRP_SOURCE="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-5.1-norepo-20200708.tar.xz"
-  # - wget -q ${TWRP_SOURCE} -O $HOME/twrp/twrp.tar.xz
-  # - tar -xJf twrp.tar.xz --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz
-  # Uncomment & Use below line If Building for Marshmallow-based Devices
-  # - TWRP_SOURCE="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-6.0-norepo-20200708.tar.xz"
-  # - wget -q ${TWRP_SOURCE} -O $HOME/twrp/twrp.tar.xz
-  # - tar -xJf twrp.tar.xz --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz
-  # Uncomment & Use below line If Building for Nougat-based Devices
-  # - TWRP_SOURCE="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-7.1-norepo-20200708.tar.xz"
-  # - wget -q ${TWRP_SOURCE} -O $HOME/twrp/twrp.tar.xz
-  # - tar -xJf twrp.tar.xz --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz
-  # Uncomment & Use below line If Building for Oreo-based Devices
-  # - TWRP_SOURCE1="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-8.1-norepo-20200708.tar.xz.aa"
-  # - TWRP_SOURCE2="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-8.1-norepo-20200708.tar.xz.ab"
-  # - wget -q ${TWRP_SOURCE1} -O $HOME/twrp/twrp.tar.xz.aa
-  # - wget -q ${TWRP_SOURCE2} -O $HOME/twrp/twrp.tar.xz.ab
-  # - cat $HOME/twrp/twrp.tar.xz.* | tar xJf - --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz.*
-  # Use below line If Building for Pie-based Devices
-  # - TWRP_SOURCE1="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.aa"
-  # - TWRP_SOURCE2="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.ab"
-  # - TWRP_SOURCE3="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.ac"
-  # - TWRP_SOURCE4="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.ad"
-  # - wget -q ${TWRP_SOURCE1} -O $HOME/twrp/twrp.tar.xz.aa
-  # - wget -q ${TWRP_SOURCE2} -O $HOME/twrp/twrp.tar.xz.ab
-  # - wget -q ${TWRP_SOURCE3} -O $HOME/twrp/twrp.tar.xz.ac
-  # - wget -q ${TWRP_SOURCE4} -O $HOME/twrp/twrp.tar.xz.ad
-  # - cat $HOME/twrp/twrp.tar.xz.* | tar xJf - --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz.*
 script:
   #- cd $HOME/twrp/ && git clone https://github.com/Elenedeath/twrp_device_Blackview_BV9900.git device/Blackview/BV9900
   #- |
