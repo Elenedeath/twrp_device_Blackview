@@ -8,77 +8,76 @@ git:
 addons:
   apt:
     update: true
-#cache:
-#  directories:
-#  - $HOME/twrp
+cache:
+  directories:
+  - $HOME/twrp
 services:
   - docker
 # download the TWRP Compressed Source Files from PhantomZone54's Release
 #
 # Uncomment & Use below line If Building for Lollipop-based Devices
-#before_install: |
-#  if ! [ -f $HOME/twrp/Makefile ]; then
-#      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-5.1-norepo-20200708.tar.xz -O $HOME/twrp/twrp.tar.xz
-#      tar -xJf $HOME/twrp/twrp.tar.xz --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz
-#  fi
-#  docker pull fr3akyphantom/droid-builder:latest
+before_install: |
+  if ! [ -f $HOME/twrp/twrp.tar.xz ]; then
+      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-5.1-norepo-20200708.tar.xz -O $HOME/twrp/twrp.tar.xz
+  fi
+  docker pull fr3akyphantom/droid-builder:latest
 #
 # Uncomment & Use below line If Building for Marshmallow-based Devices
 #before_install: |
-#  if ! [ -f $HOME/twrp/Makefile ]; then
+#  if ! [ -f $HOME/twrp/twrp.tar.xz ]; then
 #      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-6.0-norepo-20200708.tar.xz -O $HOME/twrp/twrp.tar.xz
-#      tar -xJf $HOME/twrp/twrp.tar.xz --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz
 #  fi
 #  docker pull fr3akyphantom/droid-builder:latest
 #
 # Uncomment & Use below line If Building for Nougat-based Devices
 #before_install: |
-#  if ! [ -f $HOME/twrp/Makefile ]; then
+#  if ! [ -f $HOME/twrp/twrp.tar.xz ]; then
 #      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-7.1-norepo-20200708.tar.xz -O $HOME/twrp/twrp.tar.xz
-#      tar -xJf $HOME/twrp/twrp.tar.xz --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz
 #  fi
 #  docker pull fr3akyphantom/droid-builder:latest
 #
 # Uncomment & Use below line If Building for Oreo-based Devices
 #before_install: |
-#  if ! [ -f $HOME/twrp/Makefile ]; then
+#  if ! [ -f $HOME/twrp/twrp.tar.xz.aa ]; then
 #      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-8.1-norepo-20200708.tar.xz.aa -O $HOME/twrp/twrp.tar.xz.aa
 #      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-8.1-norepo-20200708.tar.xz.ab -O $HOME/twrp/twrp.tar.xz.ab
-#      cat $HOME/twrp/twrp.tar.xz.* | tar xJf - --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz.*
 #  fi
 #  docker pull fr3akyphantom/droid-builder:latest
 #
 # Use below line If Building for Pie-based Devices
-before_install: |
-  if ! [ -f $HOME/twrp/Makefile ]; then
-      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.aa -O $HOME/twrp/twrp.tar.xz.aa
-      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.ab -O $HOME/twrp/twrp.tar.xz.ab
-      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.ac -O $HOME/twrp/twrp.tar.xz.ac
-      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.ad -O $HOME/twrp/twrp.tar.xz.ad
-      cat $HOME/twrp/twrp.tar.xz.* | tar xJf - --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz.*
-  fi
-  docker pull fr3akyphantom/droid-builder:latest
+#before_install: |
+#  if ! [ -f $HOME/twrp/twrp.tar.xz.aa ]; then
+#      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.aa -O $HOME/twrp/twrp.tar.xz.aa
+#      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.ab -O $HOME/twrp/twrp.tar.xz.ab
+#      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.ac -O $HOME/twrp/twrp.tar.xz.ac
+#      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-9.0-norepo-20200708.tar.xz.ad -O $HOME/twrp/twrp.tar.xz.ad
+#  fi
+#  docker pull fr3akyphantom/droid-builder:latest
 #
-before_script:
-  #- cd $HOME && mkdir twrp
-  #- cd $HOME/twrp && mkdir out
-script:
-  #- cd $HOME/twrp/ && git clone https://github.com/Elenedeath/twrp_device_Blackview_BV9900.git device/Blackview/BV9900
-  #- |
-  #  sudo docker run --rm -i -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) -v "$(pwd):/home/twrp/:rw,z" -v "${HOME}/.ccache:/srv/ccache:rw,z" fr3akyphantom/droid-builder /bin/bash << EOF
-  #  cd /home/twrp/
-  #  source build/envsetup.sh
-  #  ALLOW_MISSING_DEPENDENCIES=TRUE
-  #  lunch omni_BV9900-eng
-  #  sudo make -j$(nproc --all) recoveryimage
-  #  exit
-  #  EOF
-after_success:
-  #- export version=$(cat bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d '"' -f2)
-  #- cp $HOME/twrp/out/target/product/BV9900/recovery.img $HOME/twrp/TWRP-$version-BV9900-$(date +"%Y%m%d")-Unofficial.img
-  #- cd $HOME/twrp/
-  # Optional: You might need to switch from https://transfer.sh to https://file.io
-  # - curl -s --upload-file TWRP-$version-BV9900-$(date +"%Y%m%d")-Unofficial.img https://transfer.sh/ && echo ""
+install: |
+  ./scripts/build.sh;
+
+script: |
+  ./scripts/test-integration.sh;
+#- cd $HOME && mkdir twrp
+#- cd $HOME/twrp && mkdir out
+#- cd $HOME/twrp/ && git clone https://github.com/Elenedeath/twrp_device_Blackview_BV9900.git device/Blackview/BV9900
+#- |
+#  sudo docker run --rm -i -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) -v "$(pwd):/home/twrp/:rw,z" -v "${HOME}/.ccache:/srv/ccache:rw,z" fr3akyphantom/droid-builder /bin/bash << EOF
+#  cd /home/twrp/
+#  source build/envsetup.sh
+#  ALLOW_MISSING_DEPENDENCIES=TRUE
+#  lunch omni_BV9900-eng
+#  sudo make -j$(nproc --all) recoveryimage
+#  exit
+#  EOF
+after_success: |
+  ./scripts/deploy.sh;
+#- export version=$(cat bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d '"' -f2)
+#- cp $HOME/twrp/out/target/product/BV9900/recovery.img $HOME/twrp/TWRP-$version-BV9900-$(date +"%Y%m%d")-Unofficial.img
+#- cd $HOME/twrp/
+# Optional: You might need to switch from https://transfer.sh to https://file.io
+# - curl -s --upload-file TWRP-$version-BV9900-$(date +"%Y%m%d")-Unofficial.img https://transfer.sh/ && echo ""
 deploy:
   cleanup: true
   provider: releases
