@@ -13,21 +13,23 @@ addons:
 #  - $HOME/twrp
 services:
   - docker
-before_install: |
 # download the TWRP Compressed Source Files from PhantomZone54's Release
 #
 # Uncomment & Use below line If Building for Lollipop-based Devices
+#before_install: |
 #  if ! [ -f $HOME/twrp/Makefile ]; then
 #      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-5.1-norepo-20200708.tar.xz -O $HOME/twrp/twrp.tar.xz
 #      tar -xJf $HOME/twrp/twrp.tar.xz --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz
 #  fi
+#  docker pull fr3akyphantom/droid-builder:latest
 # Uncomment & Use below line If Building for Marshmallow-based Devices
+before_install: |
   if ! [ -f $HOME/twrp/Makefile ]; then
       wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-6.0-norepo-20200708.tar.xz -O $HOME/twrp/twrp.tar.xz
       tar -xJf $HOME/twrp/twrp.tar.xz --directory $HOME/twrp/ && rm $HOME/twrp/twrp.tar.xz
   fi
-#
   docker pull fr3akyphantom/droid-builder:latest
+#
 before_script:
   #- cd $HOME && mkdir twrp
   #- cd $HOME/twrp && mkdir out
