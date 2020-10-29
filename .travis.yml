@@ -18,7 +18,7 @@ services:
 # Uncomment & Use below line If Building for Lollipop-based Devices
 before_install: |
   if ! [ -f /src/twrp.tar.xz ]; then
-      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-5.1-norepo-20200708.tar.xz -O /src/twrp.tar.xz;
+      wget -q https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20200708/MinimalOmniRecovery-twrp-5.1-norepo-20200708.tar.xz -O ./src/twrp.tar.xz;
   fi
   docker pull fr3akyphantom/droid-builder:latest
 #
@@ -55,7 +55,8 @@ before_install: |
 #  docker pull fr3akyphantom/droid-builder:latest
 #
 script: |
-  cp /src/twrp.tar.xz $HOME/twrp/
+  cd $HOME && mkdir twrp
+  cp ./src/twrp.tar.xz $HOME/twrp/
 #- cd $HOME && mkdir twrp
 #- cd $HOME/twrp && mkdir out
 #- cd $HOME/twrp/ && git clone https://github.com/Elenedeath/twrp_device_Blackview_BV9900.git device/Blackview/BV9900
