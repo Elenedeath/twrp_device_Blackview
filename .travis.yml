@@ -55,7 +55,7 @@ before_install: |
 #  docker pull fr3akyphantom/droid-builder:latest
 #
 script: |
-COPY ./src/twrp.tar.xz $HOME/twrp/twrp.tar.xz
+  cp ./src/twrp.tar.xz $HOME/twrp/twrp.tar.xz
 #- cd $HOME && mkdir twrp
 #- cd $HOME/twrp && mkdir out
 #- cd $HOME/twrp/ && git clone https://github.com/Elenedeath/twrp_device_Blackview_BV9900.git device/Blackview/BV9900
